@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle } from 'lucide-react';
+import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle, Sparkles } from 'lucide-react';
 import './globals.css';
 
 export default function Home() {
@@ -181,6 +181,35 @@ export default function Home() {
                             </div>
                         </div>
 
+                        {results.ai && (
+                            <div className="card w-full mb-8 border-emerald-500/30 bg-emerald-900/10">
+                                <h3 className="text-xl text-emerald-400 font-bold mb-4 flex items-center gap-2">
+                                    <Sparkles size={20} /> AI Investment Analysis
+                                </h3>
+
+                                <div className="mb-4">
+                                    <h4 className="text-white font-bold text-sm uppercase tracking-wide opacity-70">Listing Description</h4>
+                                    <p className="text-slate-300 italic mt-1 text-sm bg-slate-900/50 p-3 rounded">{results.ai.listing_description}</p>
+                                </div>
+
+                                <div className="grid grid-2 gap-4">
+                                    <div>
+                                        <h4 className="text-white font-bold text-sm opacity-70">Investment Thesis</h4>
+                                        <p className="text-slate-300 text-sm mt-1">{results.ai.investment_thesis}</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold text-sm opacity-70">Ideal Tenant</h4>
+                                        <p className="text-slate-300 text-sm mt-1">{results.ai.renter_persona}</p>
+                                    </div>
+                                </div>
+
+                                <div className="mt-4 pt-4 border-t border-slate-700/50">
+                                    <h4 className="text-white font-bold text-sm opacity-70">Value-Add Strategy</h4>
+                                    <p className="text-emerald-300 text-sm mt-1">💡 {results.ai.value_add_strategy}</p>
+                                </div>
+                            </div>
+                        )}
+
                         {/* Monetization / Recommended Tools */}
                         <div className="w-full text-center mt-8">
                             <h3 className="text-xl text-white font-bold mb-6">Tools for Smart Investors</h3>
@@ -201,6 +230,6 @@ export default function Home() {
                 )}
 
             </div>
-        </main>
+        </main >
     );
 }

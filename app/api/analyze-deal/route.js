@@ -22,19 +22,23 @@ export async function POST(request) {
         }
 
         // FULL MODE (Email Gated)
+
+        let aiInsights = null;
+        // Only run AI if using full mode (save cost/time)
+        if (process.env.OPENAI_API_KEY) {
+            const { generateDealInsights } = require('@/lib/ai');
+            aiInsights = await generateDealInsights(financials, results);
+        }
+
         // TODO: Send email via Brevo here
         /*
-           await sendBrevoEmail({
-             to: email, 
-             subject: "Your Deal Snapshot", 
-             htmlContent: ...
-           });
-           await createBrevoContact({ email, attributes: { LEAD_SOURCE: "RE_Snapshot" }});
+           await sendBrevoEmail({ ... });
         */
 
         return NextResponse.json({
             type: 'full',
             ...results,
+            ai: aiInsights, // { listing_description, investment_thesis, ... }
             recommendedActions: [
                 "Make an offer at 5% below asking",
                 "Shop for lower insurance rates",
