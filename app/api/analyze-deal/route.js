@@ -6,6 +6,7 @@ export async function POST(request) {
     try {
         const body = await request.json();
         const { email, ...financials } = body;
+        console.log("Analyzing deal for:", email);
 
         // Run the numbers
         const results = analyzeDeal(financials);
@@ -69,11 +70,13 @@ export async function POST(request) {
             </div>
         `;
 
-        await sendBrevoEmail({
+        console.log("Sending email to:", email);
+        const success = await sendBrevoEmail({
             to: email,
             subject: `Deal Snapshot: $${financials.price} Property`,
             htmlContent: htmlContent
         });
+        console.log("Email sent result:", success);
 
         await createBrevoContact({
             email,
