@@ -1,0 +1,113 @@
+:root {
+    --bg-color: #0F172A;
+    /* Slate 900 */
+    --surface-color: #1E293B;
+    /* Slate 800 */
+    --surface-border: #334155;
+    /* Slate 700 */
+    --primary-color: #10B981;
+    /* Emerald 500 - Money Green */
+    --primary-hover: #059669;
+    --accent-color: #38BDF8;
+    /* Sky 400 */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --success-color: #22c55e;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --radius: 12px;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    background: #020617;
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.card {
+    background: var(--surface-color);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.text-green {
+    color: var(--success-color);
+}
+
+.text-red {
+    color: var(--danger-color);
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Range Slider */
+.range-wrap {
+    margin-top: 10px;
+}
+
+.range-wrap input {
+    width: 100%;
+    cursor: pointer;
+}
