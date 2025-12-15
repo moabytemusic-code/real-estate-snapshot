@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle, Sparkles, HelpCircle, X } from 'lucide-react';
+import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle, Sparkles, CircleHelp, X } from 'lucide-react';
 import './globals.css';
 
 export default function Home() {
@@ -236,7 +236,7 @@ export default function Home() {
                 onClick={() => setShowHelp(true)}
                 className="fixed top-4 right-4 bg-slate-800/50 border border-slate-700 hover:bg-slate-700 text-white px-3 py-2 rounded-full transition flex items-center gap-2 z-50 backdrop-blur-sm"
             >
-                <span className="font-bold text-sm">How To Use</span> <HelpCircle size={20} />
+                <span className="font-bold text-sm">How To Use</span> <CircleHelp size={20} />
             </button>
 
             {/* Help Modal */}
