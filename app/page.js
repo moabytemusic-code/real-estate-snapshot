@@ -1,10 +1,11 @@
 "use client";
 import { useState } from 'react';
-import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle, Sparkles } from 'lucide-react';
+import { Building2, DollarSign, Percent, ArrowRight, Lock, CheckCircle, Sparkles, HelpCircle, X } from 'lucide-react';
 import './globals.css';
 
 export default function Home() {
     const [step, setStep] = useState('input');
+    const [showHelp, setShowHelp] = useState(false);
     const [loading, setLoading] = useState(false);
     const [inputs, setInputs] = useState({
         price: 300000,
@@ -230,6 +231,48 @@ export default function Home() {
                 )}
 
             </div>
+            {/* Help Button */}
+            <button
+                onClick={() => setShowHelp(true)}
+                className="fixed top-4 right-4 text-slate-400 hover:text-white transition"
+            >
+                <HelpCircle size={24} />
+            </button>
+
+            {/* Help Modal */}
+            {showHelp && (
+                <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+                    <div className="bg-slate-800 p-6 rounded-xl max-w-sm w-full relative border border-slate-600">
+                        <button
+                            onClick={() => setShowHelp(false)}
+                            className="absolute top-4 right-4 text-slate-400 hover:text-white"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                            <Building2 size={24} className="text-emerald-500" /> How it Works
+                        </h3>
+
+                        <div className="space-y-4">
+                            <div className="flex gap-4">
+                                <div className="bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold text-emerald-500 shrink-0">1</div>
+                                <div><strong className="text-white block">Input Details</strong><p className="text-slate-400 text-sm">Enter Price, Rent, and Financing info.</p></div>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold text-emerald-500 shrink-0">2</div>
+                                <div><strong className="text-white block">Crunch Numbers</strong><p className="text-slate-400 text-sm">Get instant Cash Flow & Cap Rate.</p></div>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center font-bold text-emerald-500 shrink-0">3</div>
+                                <div><strong className="text-white block">Unlock Insights</strong><p className="text-slate-400 text-sm">Get AI Investment Thesis & PDF.</p></div>
+                            </div>
+                        </div>
+
+                        <button onClick={() => setShowHelp(false)} className="btn-primary mt-6 w-full py-2">Got it</button>
+                    </div>
+                </div>
+            )}
         </main >
     );
 }
