@@ -232,11 +232,12 @@ export default function Home() {
 
             </div>
             {/* Help Button */}
+            {/* Help Button - Fixed & Robust */}
             <button
                 onClick={() => setShowHelp(true)}
-                className="fixed top-4 right-4 bg-slate-800/50 border border-slate-700 hover:bg-slate-700 text-white px-3 py-2 rounded-full transition flex items-center gap-2 z-50 backdrop-blur-sm"
+                style={{ position: 'fixed', top: '20px', right: '20px', backgroundColor: '#000000', border: '1px solid #333333', padding: '10px 20px', borderRadius: '30px', cursor: 'pointer', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px', zIndex: 99999, boxShadow: '0 4px 20px rgba(0,0,0,0.8)', fontWeight: 'bold', fontSize: '14px' }}
             >
-                <span className="font-bold text-sm">How To Use</span> <CircleHelp size={20} />
+                <span>How To Use</span> <CircleHelp size={20} />
             </button>
 
             {/* Help Modal */}
