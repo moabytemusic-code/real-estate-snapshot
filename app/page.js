@@ -234,9 +234,9 @@ export default function Home() {
             {/* Help Button */}
             <button
                 onClick={() => setShowHelp(true)}
-                className="fixed top-4 right-4 text-slate-400 hover:text-white transition"
+                className="fixed top-4 right-4 text-slate-400 hover:text-white transition flex items-center gap-2"
             >
-                <HelpCircle size={24} />
+                <span className="font-bold text-sm">How To Use</span> <HelpCircle size={24} />
             </button>
 
             {/* Help Modal */}
